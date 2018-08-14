@@ -3,9 +3,14 @@ import React, { Component } from 'react';
 class Archive extends Component {
     render() {
         return (
-                <div className="archive">
-                    <p> this is a placeholder for the upcoming archive page </p>
-                </div>
+              <div className="app">
+          <div className="galleryHead">
+            <h2> Previous Winning Doggos </h2>
+          </div>
+          <div className="GalleryBody">
+            
+          </div>
+        </div>
             )
     }
 }
