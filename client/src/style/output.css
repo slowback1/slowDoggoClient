@@ -80,6 +80,8 @@ table {
   flex-direction: column;
   align-items: center;
   width: 95%;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
   margin: 25px auto;
   background-color: #e8e9ea; }
   .app .galleryHead {
@@ -88,18 +90,31 @@ table {
     font-size: 24px;
     padding: 10px 0;
     text-align: center;
-    color: #111; }
-  .app .GalleryBody {
+    color: #111;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px; }
+  .app .galleryBody {
     width: 100%;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: flex-start;
-    min-height: 480px;
+    min-height: 580px;
     padding: 10px; }
-    .app .GalleryBody img {
-      width: 25%;
-      height: 180px; }
+    .app .galleryBody .galleryImg {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 0 10px 5px 0;
+      width: 20%;
+      height: auto;
+      max-height: 50px; }
+      .app .galleryBody .galleryImg img {
+        width: 100%;
+        height: auto;
+        max-height: 400px; }
+      .app .galleryBody .galleryImg p {
+        font-size: 16px; }
 
 .about {
   width: 80%;

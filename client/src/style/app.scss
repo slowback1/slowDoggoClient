@@ -3,6 +3,8 @@
     flex-direction: column;
     align-items: center;
     width: 95%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
     margin: 25px auto;
     background-color: $colors_tertiary;
     .galleryHead {
@@ -12,20 +14,35 @@
         padding: 10px 0;
         text-align: center;
         color: $colors_secondary;
-        
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
     }
-    .GalleryBody {
+    .galleryBody {
         width: 100%;
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: flex-start;
-        min-height: 480px;
+        min-height: 580px;
         padding: 10px;
         
-        img {
-            width: 25%;
-            height: 180px;
+        
+        .galleryImg {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0 10px 5px 0;
+            width: 20%;
+            height: auto;
+            max-height: 50px;
+            img {
+                width: 100%;
+                height: auto;
+                max-height: 400px;
+            }
+            p {
+                font-size: 16px;
+            }
         }
     }
 }
