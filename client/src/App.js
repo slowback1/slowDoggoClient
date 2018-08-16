@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import fetch from 'node-fetch';
-
+import MainImgs from './components/mainImgs';
 
 class App extends Component {
   constructor(props) {
@@ -16,17 +16,22 @@ class App extends Component {
     event.preventDefault();
     this.props.history.push('/add-doggo');
   }
-  handleVote(event) {
-    console.log(event);
-    //event.preventDefault();
+  handleVote(e) {
+    console.log(e);
+    e.preventDefault();
+    var id = e.target.id
+    console.log(e.target.id);
     if(this.state.votedID === null) {
       //put request to api
-      
-      //this.setState({votedID: event.target.id})
+          fetch('https://stark-meadow-71570.herokuapp.com/doggoAdd', {method: "PUT", mode: "cors", credentials: 'omit', headers: {"Content-Type": "application/json; charset=utf-8"}, body: JSON.stringify({"id": id})
+    }).then(res => this.setState({ votedID: id }));
+
+    } else {
+        fetch('https://stark-meadow-71570.herokuapp.com/doggoSub', {method: "PUT", mode: "cors", credentials: "omit", headers: {"Content-Type": "application/json; charset=utf-8"}, body: JSON.stringify({"id": this.state.votedID})});
+          fetch('https://stark-meadow-71570.herokuapp.com/doggoAdd', {method: "PUT", mode: "cors", credentials: 'omit', headers: {"Content-Type": "application/json; charset=utf-8"}, body: JSON.stringify({"id": id})
+    }).then(res => this.setState({ votedID: id }));
     }
-  /*  fetch('https://stark-meadow-71570.herokuapp.com/doggo', {method: "PUT", mode: "cors", credentials: 'omit', headers: {"Content-Type": "application/json; charset=utf-8"}, body: JSON.stringify({"_id": id})
-    })*/
-    
+  this.props.history.push('/');
   }
   componentWillMount() {
   fetch('https://stark-meadow-71570.herokuapp.com/doggo', {mode: "cors"})
@@ -52,16 +57,11 @@ class App extends Component {
             <h2> Today's Doggos </h2>
           </div>
           <div className="galleryBody">
-            {this.state.data.map(function(doggo) {
+            {this.state.data.map((doggo) => {
               return (
-                <div className="galleryImg" key={doggo._id}>
-                  <img src={doggo.link} alt="img" />
-                  <p> Votes: {doggo.meta.votes} </p>
-                  <p> {doggo.date.slice(0, 10)} </p>
-                  <button onClick={() => this.handleVote()} id={doggo._id}>vote</button>
-                </div>
+                <MainImgs id={doggo._id} link={doggo.link} votes={doggo.meta.votes} date={doggo.date.slice(0,10)} handleVote={this.handleVote} />
               )
-            }, this)}
+            })}
           </div>
         </div>
       )
