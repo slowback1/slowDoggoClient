@@ -25,15 +25,14 @@ class App extends Component {
     if(this.state.votedID === null) {
       //put request to api
           fetch('https://stark-meadow-71570.herokuapp.com/doggoAdd', {method: "PUT", mode: "cors", credentials: 'omit', headers: {"Content-Type": "application/json; charset=utf-8"}, body: JSON.stringify({"id": id})
-    }).then(res => this.setState({ votedID: id }));
+    }).then(res => window.location.reload());
 
     } else {
         fetch('https://stark-meadow-71570.herokuapp.com/doggoSub', {method: "PUT", mode: "cors", credentials: "omit", headers: {"Content-Type": "application/json; charset=utf-8"}, body: JSON.stringify({"id": this.state.votedID})});
           fetch('https://stark-meadow-71570.herokuapp.com/doggoAdd', {method: "PUT", mode: "cors", credentials: 'omit', headers: {"Content-Type": "application/json; charset=utf-8"}, body: JSON.stringify({"id": id})
     }).then(res => this.setState({ votedID: id }));
     }
-  this.props.history.push('/about');
-  this.forceUpdate();
+
   }
   handleDelete(e) {
     e.preventDefault();

@@ -15,7 +15,7 @@ class MainImgs extends Component {
                   <div className="votesSection">
                       <p className="votesCounter"> {this.props.votes} </p>
                       <img src={require("./icons/heartIcon.png")} className="voteIcon" alt="voteIcon" onClick={this.props.handleVote} id={this.props.id} />
-                      <img src={require('./icons/trashIcon.png')} className="trashIcon" onClick={this.props.handleDelete} id={this.props.id} />
+                      <img src={require('./icons/trashIcon.png')} className="trashIcon" onClick={this.props.handleDelete} id={this.props.id} alt="trashicon" />
                 </div>
 
                 </div>
