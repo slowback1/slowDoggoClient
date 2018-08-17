@@ -1,0 +1,40 @@
+.app {
+    width: 100%;
+    .galleryHead {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+    .galleryBody {
+        width: 100vw;
+        padding: 0 0 45px 0;
+        margin: 0;
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        flex-direction: column;
+        .galleryImg {
+            margin: 0;
+            padding: 0;
+            width: 100vw;
+            .doggoImg {
+                align-self: center;
+                margin: 10px 0;
+                padding: 0;
+                width: 100vw;
+                height: auto;
+            }
+            .votesSection {
+                .votesCounter {
+                     left: -27vw;   
+                }
+                .voteIcon {
+                    left: -27vw;
+                }
+                .trashIcon {
+                    left: -27vw;
+                }
+            }
+        }
+    }
+}

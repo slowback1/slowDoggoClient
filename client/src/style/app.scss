@@ -12,61 +12,103 @@
     flex-direction: column;
     align-items: center;
     width: 95%;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
+    border-radius: 10px;
     margin: 25px auto;
     background-color: $colors_tertiary;
-    .galleryHead {
-        background-color: $colors_primary;
-        width: 100%;
-        font-size: 24px;
-        padding: 10px 0;
-        text-align: center;
-        color: $colors_secondary;
-        border-top-left-radius: 10px;
-        border-top-right-radius: 10px;
-    }
-    .galleryBody {
-        width: 100%;
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
-        align-items: center;
-        min-height: 580px;
-        padding: 10px;
-        
-        
-        .galleryImg {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin: 0 10px 35px 0;
-            min-width: 15%;
-            max-width: 25%;
-            max-height: 450px;
-            height: auto;
-            
-            img {
-                margin-top: 15px;
-                width: 100%;
-                height: auto;
-                max-height: 400px;
-            }
-            p {
-                font-size: 16px;
-            }
+        .galleryHead {
+            background-color: $colors_primary;
+            width: 100%;
+            font-size: 24px;
+            padding: 10px 0;
+            text-align: center;
+            color: $colors_secondary;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
         }
-        .loadingScreen {
-            margin: auto auto;
-            .loadingSpinner {
-                width: 45px;
-                height: 45px;
-                border-left: 20px solid $colors_primary;
-                border-right: 20px solid $colors_secondary;
-                border-top: 20px solid $colors_tertiary;
-                border-bottom: 20px solid $colors_quartiary;
-                animation: spinner 1s infinite;
+        .galleryBody {
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            min-height: 580px;
+            padding: 10px;
+            
+            
+            .galleryImg {
+                display: flex;
+                position: relative;
+                flex-direction: column;
+                align-items: center;
+                margin: 0 10px 35px 0;
+                min-width: 15%;
+                max-width: 25%;
+                max-height: 450px;
+                height: auto;
+                
+                .doggoImg {
+                    margin-top: 15px;
+                    width: 100%;
+                    height: auto;
+                    max-height: 400px;
+                }
+                .votesSection {
+                    opacity: 0.3;
+                    .votesCounter {
+                        font-size: 16px;
+                        padding: 20px 12px;
+                        border-radius: 12px;
+                        background-color: $colors_secondary;
+                        color: $colors_tertiary;
+                        position: absolute;
+                        top: 22px;
+                        left: 12px;
+                        font-family: $fonts_secondary;
+                        cursor: initial;
+                    }
+          
+                    .voteIcon {
+                        width: 24px;
+                        padding: 5px;
+                        border-radius: 12px;
+                        height: auto;
+                        background-color: $colors_secondary;
+                        color: $colors_tertiary;
+                        position: absolute;
+                        top: 82px;
+                        left: 10px;
+                        cursor: pointer;
+                    }
+                    .trashIcon {
+                        width: 24px;
+                        padding: 5px;
+                        border-radius: 12px;
+                        height: auto;
+                        background-color: $colors_secondary;
+                        position: absolute;
+                        bottom: 12px;
+                        left: 10px;
+                        cursor: pointer;
+                    }
+                }
+                .votesSection:hover{ 
+                    opacity: 1;
+                    transition: 0.2s;
+            }
+            .loadingScreen {
+                margin: 45% auto;
+                .loadingSpinner {
+                    width: 45px;
+                    height: 45px;
+                    border-left: 20px solid $colors_primary;
+                    border-right: 20px solid $colors_secondary;
+                    border-top: 20px solid $colors_tertiary;
+                    border-bottom: 20px solid $colors_quartiary;
+                    animation: spinner 1s infinite;
+                }
             }
         }
     }

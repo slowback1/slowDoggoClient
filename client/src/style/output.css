@@ -65,7 +65,7 @@ table {
       flex-direction: row;
       justify-content: space-around; }
       .header .hList ul li {
-        color: #e8e9ea;
+        color: #111;
         cursor: pointer;
         padding: 1em;
         font-size: 1.5em;
@@ -85,8 +85,7 @@ table {
   flex-direction: column;
   align-items: center;
   width: 95%;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
+  border-radius: 10px;
   margin: 25px auto;
   background-color: #e8e9ea; }
   .app .galleryHead {
@@ -99,6 +98,8 @@ table {
     border-top-left-radius: 10px;
     border-top-right-radius: 10px; }
   .app .galleryBody {
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
     width: 100%;
     display: flex;
     flex-direction: row;
@@ -109,6 +110,7 @@ table {
     padding: 10px; }
     .app .galleryBody .galleryImg {
       display: flex;
+      position: relative;
       flex-direction: column;
       align-items: center;
       margin: 0 10px 35px 0;
@@ -116,23 +118,58 @@ table {
       max-width: 25%;
       max-height: 450px;
       height: auto; }
-      .app .galleryBody .galleryImg img {
+      .app .galleryBody .galleryImg .doggoImg {
         margin-top: 15px;
         width: 100%;
         height: auto;
         max-height: 400px; }
-      .app .galleryBody .galleryImg p {
-        font-size: 16px; }
-    .app .galleryBody .loadingScreen {
-      margin: auto auto; }
-      .app .galleryBody .loadingScreen .loadingSpinner {
-        width: 45px;
-        height: 45px;
-        border-left: 20px solid #4ae255;
-        border-right: 20px solid #111;
-        border-top: 20px solid #e8e9ea;
-        border-bottom: 20px solid #333;
-        animation: spinner 1s infinite; }
+      .app .galleryBody .galleryImg .votesSection {
+        opacity: 0.3; }
+        .app .galleryBody .galleryImg .votesSection .votesCounter {
+          font-size: 16px;
+          padding: 20px 12px;
+          border-radius: 12px;
+          background-color: #111;
+          color: #e8e9ea;
+          position: absolute;
+          top: 22px;
+          left: 12px;
+          font-family: "Raleway", sans-serif;
+          cursor: initial; }
+        .app .galleryBody .galleryImg .votesSection .voteIcon {
+          width: 24px;
+          padding: 5px;
+          border-radius: 12px;
+          height: auto;
+          background-color: #111;
+          color: #e8e9ea;
+          position: absolute;
+          top: 82px;
+          left: 10px;
+          cursor: pointer; }
+        .app .galleryBody .galleryImg .votesSection .trashIcon {
+          width: 24px;
+          padding: 5px;
+          border-radius: 12px;
+          height: auto;
+          background-color: #111;
+          position: absolute;
+          bottom: 12px;
+          left: 10px;
+          cursor: pointer; }
+      .app .galleryBody .galleryImg .votesSection:hover {
+        opacity: 1;
+        transition: 0.2s; }
+      .app .galleryBody .galleryImg .loadingScreen {
+        margin: 45% auto; }
+        .app .galleryBody .galleryImg .loadingScreen .loadingSpinner {
+          width: 45px;
+          height: 45px;
+          border-left: 20px solid #4ae255;
+          border-right: 20px solid #111;
+          border-top: 20px solid #e8e9ea;
+          border-bottom: 20px solid #333;
+          animation: spinner 1s infinite; }
 
 .about {
   width: 80%;
@@ -166,8 +203,7 @@ table {
 
 form {
   width: 80%;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
+  border-radius: 10px;
   margin: 25px auto;
   background-color: #e8e9ea;
   padding-bottom: 25px; }
@@ -206,8 +242,42 @@ form {
   color: #111;
   padding: 24px; }
 
-@media screen and (min-width: 680px) {
-  p {
-    font-size: 22222px; } }
+@media screen and (max-width: 680px) {
+  .app {
+    width: 100%; }
+    .app .galleryHead {
+      display: flex;
+      flex-direction: column;
+      width: 100%; }
+    .app .galleryBody {
+      width: 100vw;
+      padding: 0 0 45px 0;
+      margin: 0;
+      align-items: center;
+      justify-content: center;
+      display: flex;
+      flex-direction: column; }
+      .app .galleryBody .galleryImg {
+        margin: 0;
+        padding: 0;
+        width: 100vw; }
+        .app .galleryBody .galleryImg .doggoImg {
+          align-self: center;
+          margin: 10px 0;
+          padding: 0;
+          width: 100vw;
+          height: auto; }
+        .app .galleryBody .galleryImg .votesSection .votesCounter {
+          left: -27vw; }
+        .app .galleryBody .galleryImg .votesSection .voteIcon {
+          left: -27vw; }
+        .app .galleryBody .galleryImg .votesSection .trashIcon {
+          left: -27vw; }
+
+  .header .hList {
+    width: 100%; }
+    .header .hList ul li {
+      font-size: 14px;
+      width: 25%; } }
 
 /*# sourceMappingURL=output.css.map */

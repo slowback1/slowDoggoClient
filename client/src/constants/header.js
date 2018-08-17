@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import HImg from './img/hLogo.jpg';
+
 
 class Header extends Component {
     constructor(props) {
@@ -30,7 +30,6 @@ class Header extends Component {
         return (
                 <div className="header">
                   <div className="hLogo">
-                    <img src={HImg} alt="hLogo" />
                   </div>
                   <div className="hList">
                     <ul>

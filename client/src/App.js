@@ -7,10 +7,11 @@ class App extends Component {
     super(props);
     this.state = {
       data: null,
-      votedID: null
+      votedID: null,
     }
     this.handleNav = this.handleNav.bind(this);
     this.handleVote = this.handleVote.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
   }
   handleNav(event) {
     event.preventDefault();
@@ -31,7 +32,14 @@ class App extends Component {
           fetch('https://stark-meadow-71570.herokuapp.com/doggoAdd', {method: "PUT", mode: "cors", credentials: 'omit', headers: {"Content-Type": "application/json; charset=utf-8"}, body: JSON.stringify({"id": id})
     }).then(res => this.setState({ votedID: id }));
     }
-  this.props.history.push('/');
+  this.props.history.push('/about');
+  this.forceUpdate();
+  }
+  handleDelete(e) {
+    e.preventDefault();
+    var id = e.target.id;
+    fetch('https://stark-meadow-71570.herokuapp.com/doggo', {method: 'DELETE', mode: 'cors', credentials: 'omit', headers: {"Content-Type": "application/json; charset=utf-8"}, body: JSON.stringify({"id": id})});
+    this.forceUpdate();
   }
   componentWillMount() {
   fetch('https://stark-meadow-71570.herokuapp.com/doggo', {mode: "cors"})
@@ -59,7 +67,7 @@ class App extends Component {
           <div className="galleryBody">
             {this.state.data.map((doggo) => {
               return (
-                <MainImgs id={doggo._id} link={doggo.link} votes={doggo.meta.votes} date={doggo.date.slice(0,10)} handleVote={this.handleVote} />
+                <MainImgs id={doggo._id} link={doggo.link} votes={doggo.meta.votes} date={doggo.date.slice(0,10)} handleVote={this.handleVote}  handleDelete={this.handleDelete} />
               )
             })}
           </div>
