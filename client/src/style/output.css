@@ -147,6 +147,14 @@ table {
           top: 82px;
           left: 10px;
           cursor: pointer; }
+        .app .galleryBody .galleryImg .votesSection #hidden {
+          display: none; }
+        .app .galleryBody .galleryImg .votesSection #notHidden {
+          display: inherit; }
+        .app .galleryBody .galleryImg .votesSection #active {
+          display: inherit; }
+        .app .galleryBody .galleryImg .votesSection #notActive {
+          display: none; }
         .app .galleryBody .galleryImg .votesSection .trashIcon {
           width: 24px;
           padding: 5px;

@@ -10,31 +10,14 @@ class App extends Component {
       votedID: null,
     }
     this.handleNav = this.handleNav.bind(this);
-    this.handleVote = this.handleVote.bind(this);
+
     this.handleDelete = this.handleDelete.bind(this);
   }
   handleNav(event) {
     event.preventDefault();
     this.props.history.push('/add-doggo');
   }
-  handleVote(e) {
-    console.log(e);
-    e.preventDefault();
-    var id = e.target.id
-    console.log(e.target.id);
-    if(this.state.votedID === null) {
-      //put request to api
-          fetch('https://stark-meadow-71570.herokuapp.com/doggoAdd', {method: "PUT", mode: "cors", credentials: 'omit', headers: {"Content-Type": "application/json; charset=utf-8"}, body: JSON.stringify({"id": id})
-    }).then(res => this.setState({ votedID: id }));
 
-    } else {
-        fetch('https://stark-meadow-71570.herokuapp.com/doggoSub', {method: "PUT", mode: "cors", credentials: "omit", headers: {"Content-Type": "application/json; charset=utf-8"}, body: JSON.stringify({"id": this.state.votedID})});
-          fetch('https://stark-meadow-71570.herokuapp.com/doggoAdd', {method: "PUT", mode: "cors", credentials: 'omit', headers: {"Content-Type": "application/json; charset=utf-8"}, body: JSON.stringify({"id": id})
-    }).then(res => this.setState({ votedID: id }));
-    }
-  this.props.history.push('/about');
-  this.forceUpdate();
-  }
   handleDelete(e) {
     e.preventDefault();
     var id = e.target.id;
@@ -67,7 +50,7 @@ class App extends Component {
           <div className="galleryBody">
             {this.state.data.map((doggo) => {
               return (
-                <MainImgs id={doggo._id} link={doggo.link} votes={doggo.meta.votes} date={doggo.date.slice(0,10)} handleVote={this.handleVote}  handleDelete={this.handleDelete} />
+                <MainImgs id={doggo._id} link={doggo.link} votes={doggo.meta.votes} date={doggo.date.slice(0,10)} handleVote={this.handleVote} key={doggo._id}  handleDelete={this.handleDelete} />
               )
             })}
           </div>
