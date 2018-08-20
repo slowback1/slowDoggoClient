@@ -37,7 +37,8 @@ class App extends Component {
   handleDelete(e) {
     e.preventDefault();
     var id = e.target.id;
-    fetch('https://stark-meadow-71570.herokuapp.com/doggo', {method: 'DELETE', mode: 'cors', credentials: 'omit', headers: {"Content-Type": "application/json; charset=utf-8"}, body: JSON.stringify({"id": id})});
+    fetch('https://stark-meadow-71570.herokuapp.com/doggo', {method: 'DELETE', mode: 'cors', credentials: 'omit', headers: {"Content-Type": "application/json; charset=utf-8"}, body: JSON.stringify({"id": id})})
+    .then(res => window.location.reload());
     this.forceUpdate();
   }
   componentWillMount() {
