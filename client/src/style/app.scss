@@ -82,6 +82,18 @@
                         left: 10px;
                         cursor: pointer;
                     }
+                    #hidden {
+                        display: none;
+                    }
+                    #notHidden {
+                        display: inherit;
+                    }
+                    #active {
+                        display: inherit;
+                    }
+                    #notActive {
+                        display: none;
+                    }
                     .trashIcon {
                         width: 24px;
                         padding: 5px;

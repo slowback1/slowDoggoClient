@@ -10,13 +10,14 @@ class App extends Component {
       votedID: null,
     }
     this.handleNav = this.handleNav.bind(this);
-    this.handleVote = this.handleVote.bind(this);
+
     this.handleDelete = this.handleDelete.bind(this);
   }
   handleNav(event) {
     event.preventDefault();
     this.props.history.push('/add-doggo');
   }
+<<<<<<< HEAD
   handleVote(e) {
     console.log(e);
     e.preventDefault();
@@ -34,6 +35,9 @@ class App extends Component {
     }
 
   }
+=======
+
+>>>>>>> e55635ebee5c7ed7354a66c4ad6472c5116010fe
   handleDelete(e) {
     e.preventDefault();
     var id = e.target.id;
@@ -67,7 +71,7 @@ class App extends Component {
           <div className="galleryBody">
             {this.state.data.map((doggo) => {
               return (
-                <MainImgs id={doggo._id} link={doggo.link} votes={doggo.meta.votes} date={doggo.date.slice(0,10)} handleVote={this.handleVote}  handleDelete={this.handleDelete} />
+                <MainImgs id={doggo._id} link={doggo.link} votes={doggo.meta.votes} date={doggo.date.slice(0,10)} handleVote={this.handleVote} key={doggo._id}  handleDelete={this.handleDelete} />
               )
             })}
           </div>
