@@ -12,4 +12,4 @@ The client side of SlowDoggo, a MERN stack web app that acts as a daily contest 
 
 ### Mobile
 
-![mobile](https://media.giphy.com/media/jkYlSQ0eRgajWT8exB/giphy.gif)
+![mobile](https://media.giphy.com/media/RN8McE9HU6X34uHQpB/giphy.gif)
