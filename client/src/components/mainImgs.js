@@ -7,7 +7,16 @@ class MainImgs extends Component {
         votes: this.props.votes
     }
         this.handleVote = this.handleVote.bind(this);
+        this.handleDelete = this.handleDelete.bind(this);
     }
+      handleDelete(e) {
+    e.preventDefault();
+    var id = e.target.id;
+    console.log(id);
+    fetch('https://stark-meadow-71570.herokuapp.com/doggo', {method: 'DELETE', mode: 'cors', credentials: 'omit', headers: {"Content-Type": "application/json; charset=utf-8"}, body: JSON.stringify({"id": id})})
+    .then(res => document.getElementById(id).setAttribute("visibility", "none"));
+    this.forceUpdate();
+  }
       handleVote(e) {
     console.log(e);
     e.preventDefault();
@@ -28,19 +37,19 @@ class MainImgs extends Component {
     
     render() {
         return (
-                <div className="galleryImg" key={this.props.id}>
+                <div className="galleryImg" key={this.props.id} id={this.props.id}>
                   <img src={this.props.link} className="doggoImg" alt="img" />
                   <div className="votesSection">
-<<<<<<< HEAD
+
                       <p className="votesCounter"> {this.props.votes} </p>
                       <img src={require("./icons/heartIcon.png")} className="voteIcon" alt="voteIcon" onClick={this.props.handleVote} id={this.props.id} />
-                      <img src={require('./icons/trashIcon.png')} className="trashIcon" onClick={this.props.handleDelete} id={this.props.id} alt="trashicon" />
-=======
+                      <img src={require('./icons/trashIcon.png')} className="trashIcon" onClick={this.handleDelete} id={this.props.id} alt="trashicon" />
+
                       <p className="votesCounter"> {this.state.votes} </p>
-                      <img src={require("./icons/heartIcon.png")} className="voteIcon" id="active" alt="voteIcon" onClick={this.handleVote} id={this.props.id} />
+                      <img src={require("./icons/heartIcon.png")} className="voteIcon" alt="voteIcon" onClick={this.handleVote} id={this.props.id} />
                       <img src={require("./icons/votedHeartIcon.png")} className="voteIcon" id="hidden" alt="votedIcon" />
-                      <img src={require('./icons/trashIcon.png')} className="trashIcon" onClick={this.props.handleDelete} alt="trashIcon" id={this.props.id} />
->>>>>>> e55635ebee5c7ed7354a66c4ad6472c5116010fe
+                      <img src={require('./icons/trashIcon.png')} className="trashIcon" onClick={this.handleDelete} alt="trashIcon" id={this.props.id} />
+
                 </div>
 
                 </div>
